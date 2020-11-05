@@ -10,10 +10,33 @@ function writePassword() {
 
 }
 
+function getRandomLower (lowerChar) {
+  var L = Math.floor(Math.random() * lowerChar.length);
+  console.log(L);
+  return lowerChar[L];
+} 
+
+function getRandomUpper (upperChar) {
+  var U = Math.floor(Math.random() * upperChar.length);
+  console.log(U);
+  return upperChar[U];
+}
+
+function getRandomNum (numChars) {
+  var N = Math.floor(Math.random() * numChars.length);
+  console.log(N);
+  return numChars[N];
+} 
+
+function getRandomSpecial (specialChar) {
+  var S = Math.floor(Math.random() * specialChar.length);
+  console.log(S);
+  return specialChar[S];
+} 
+
 function generatePassword() {
   var charCount = prompt("How many characters do you want your password?");
      var length = parseInt(charCount);
-     console.log(length)
 
     if (length < 8 || length > 128) {
         alert("Your password must be between 8 and 128 characters!");
@@ -32,38 +55,41 @@ function generatePassword() {
         var lowerChar = (lowerCase) ? "abcdefghijklmnopqrstuvwxyz" : "";
         var upperChar = (upperCase) ? "ABCDEFGHIJKLMNOPQRSTUVWXTZ" : "";
         var numChars = (num) ? "0123456789" : "";
-        var specialChar = (special) ? "!@#$%^&*()" : "" ;
+        var specialChar = (special) ? "!'+,-./<>=?[]_{}|~@#$%^&*():;" : "" ;
 
         var passwordChar = lowerChar + upperChar + numChars + specialChar;
-        console.log(passwordChar);
         var password = ""
 
-        for ( var i = 0 ; i < length; i++) {
+        if (lowerCase) {
+          var char = getRandomLower(lowerChar);
+          password = password + char;
+          console.log(password);
+        }
+
+        if (upperCase) {
+          var char = getRandomUpper(upperChar);
+          password = password + char;
+          console.log(password);
+        }
+
+        if (num) {
+          var char = getRandomNum(numChars);
+          password = password + char;
+          console.log(password);
+        }
+
+        if (special) {
+          var char = getRandomSpecial(specialChar);
+          password = password + char;
+          console.log(password);
+        }
+           
+
+        for ( var i = password.length ; i < length; i++) {
           var x = Math.floor(Math.random() * passwordChar.length);
           password = password + (passwordChar[x]);
         }
 
-        if (lowerCase == true) {
-          var q = Math.floor(Math.random() * lowerChar.length);
-          password[0] = lowerChar[q];
-        }
-
-        if (upperCase == true) {
-          var r = Math.floor(Math.random() * upperChar.length);
-          password[1] = upperChar[r];
-        }
-
-        if (numChars == true) {
-          var s = Math.floor(Math.random() * numChars.length);
-          password[2] = numChars[s];
-        }
-
-        if (special == true) {
-          var t = Math.floor(Math.random() * specialChar.length);
-          password[3] = specialChar[t];
-        }
-
-        
 
         return password;
 

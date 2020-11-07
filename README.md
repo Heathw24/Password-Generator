@@ -11,4 +11,4 @@ Tools used:
 
 https://heathw24.github.io/Password-Generator/
 
-![Password Generator Screenshot](assets/images/Screenshot.png)
+![Password-Generator-Screenshot](assets/Images/Screenshot.png)

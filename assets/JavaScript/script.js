@@ -52,6 +52,12 @@ function generatePassword() {
       } 
       else {
         
+        // if (lowerCase == true) {
+        //   lowerChar = "abcdefg";
+        // }  else {
+        //   lowerChar = "";
+        // }
+
         var lowerChar = (lowerCase) ? "abcdefghijklmnopqrstuvwxyz" : "";
         var upperChar = (upperCase) ? "ABCDEFGHIJKLMNOPQRSTUVWXTZ" : "";
         var numChars = (num) ? "0123456789" : "";
